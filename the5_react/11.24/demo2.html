@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="warp"></div>
+    <script>
+        class Component{
+            setState(newState){
+                this.state={
+                    ...this.state,
+                    ...newState
+                }
+                this.render()
+            }
+        }
+
+        class Button extends Component{
+            constructor(){
+                super()
+                this.state={
+                    isLike:false,
+                    text:'很赞'
+                }
+            }
+            render(){
+                var {isLike,text}=this.state
+                return`
+                <button style="color:${isLike?"red":"black"};">${text}</button>
+                `
+            }
+        }
+
+        class Text extends Component{
+            constructor(){
+                super()
+                this.state={
+                    isLike:true,
+                    text:"123456789"
+                }
+            }
+            render(){
+                var {isLike,text}=this.state
+                return`
+                <p style="color:${isLike?"red":"black"};">${text}</p>
+                `
+            }
+        }
+
+        class Warp extends Component{
+            render(){
+                return`
+                    ${new Button.render()}
+                `
+            }
+        }
+
+        var warp=document.getElementById('warp')
+
+        var b=new Button
+        var t=new Text
+        var w=new Warp
+        warp.innerHTML=b.render()+t.render()
+
+        
+    </script>
+</body>
+</html>

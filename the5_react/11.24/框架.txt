@@ -1,0 +1,9 @@
+
+
+vue angular react
+
+react-router
+
+react-redux
+
+cnpm i create-react-app -g

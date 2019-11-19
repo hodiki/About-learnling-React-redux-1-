@@ -1,0 +1,11 @@
+
+
+//1.一段jsx只能有一个节点
+
+//2.jsx看作另一个基础的类型=>bable=>createRea
+
+//3.jsx如何使用一个变量{变量名}
+
+//4.css类: className
+
+//5.style: 需要一个对象表示style

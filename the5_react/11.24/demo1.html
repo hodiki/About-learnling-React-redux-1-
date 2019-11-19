@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='button'>点赞</button>
+    <script>
+        var button = document.getElementById('button')
+        var state={
+            islike:false,
+            text:'赞爆了'
+        }
+
+        var setState=function(newState){
+            state={
+                ...state,
+                ...newState
+            }
+            render()
+        }
+
+        //render() 渲染
+        var render= function(){
+            var{islike,text}=state
+            if(islike){
+                button.style.color='red'
+            }else{
+                button.style.color='black'
+            }
+            button.innerHTML=text
+        }
+        
+        button.addEventListener('click',function(){
+            if(state.islike){
+                setState({islike:false,text:'点赞'})
+            }else{
+                setState({islike:true,text:'赞爆了'})
+            }
+            
+        })
+    </script>
+</body>
+
+</html>
